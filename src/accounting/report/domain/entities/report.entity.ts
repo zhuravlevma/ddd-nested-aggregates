@@ -1,5 +1,6 @@
 import { ReportPositionEntity } from './report-position.entity';
 import { OfferEntity } from 'src/delivery/offer/domain/entities/offer.entity';
+import { v4 as uuid } from 'uuid';
 
 interface Attributes {
   id: string;
@@ -22,10 +23,15 @@ export class ReportEntity implements Attributes {
     this.positions = attributes.positions;
   }
 
-  updateReportStatus(status: boolean, offer: OfferEntity) {
+  updateReportStatus(status: boolean) {
     if (status === true) {
       this.isValid = true;
-      this.offer = offer;
+      this.offer = new OfferEntity({
+        id: uuid(),
+        name: 'test',
+        orderId: 'test',
+        deliverymanId: null,
+      });
     } else {
       this.isValid = false;
     }
