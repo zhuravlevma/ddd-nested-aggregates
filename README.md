@@ -8,7 +8,7 @@ If you are interested in the option with domain events, then follow the [link](h
 
 ## Architecture
 
-![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/zhuravlevma/nestjs-ddd-nested-aggregates/main/diagram.iuml)
+![image](https://github.com/zhuravlevma/ddd-nested-aggregates/assets/44276887/0b862b4e-6d1e-4882-bb29-1653f296cd56)
 
 ### Module boundaries
 
