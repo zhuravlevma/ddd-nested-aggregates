@@ -29,13 +29,13 @@ export class WarehouseEntity implements Attributes {
 }
 ```
 
-If you are interested in the option with domain events, then follow the [link](https://github.com/zhuravlevma/nestjs-ddd-clean-architecture)
+If you are interested in the option with domain events, then follow the [link](https://github.com/zhuravlevma/typescript-ddd-architecture)
 
 [Domain model](https://martinfowler.com/eaaCatalog/domainModel.html) with a clean architecture with ports and adapters. It takes into account some tactical patterns from DDD.
 
 ## Architecture
 
-![image](https://github.com/zhuravlevma/ddd-nested-aggregates/assets/44276887/0b862b4e-6d1e-4882-bb29-1653f296cd56)
+<img src='https://github.com/zhuravlevma/ddd-nested-aggregates/assets/44276887/0b862b4e-6d1e-4882-bb29-1653f296cd56' alt="architecture schema" width='50%'>
 
 ## Installation
 
