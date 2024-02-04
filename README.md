@@ -2,6 +2,33 @@
 
 This implementation is without domain events, instead of events there are nested aggregates.
 
+## Example
+
+```typescript
+export class WarehouseEntity implements Attributes {
+  id: string;
+  name: string;
+  orders: OrderEntity[];
+  report?: ReportEntity; // nested aggregate
+
+  constructor(attributes: Attributes) {
+    this.id = attributes.id;
+    this.name = attributes.name;
+    this.orders = attributes.orders;
+  }
+
+  addOrder(order: OrderEntity) {
+    this.orders.push(order);
+  }
+
+  changeOrderStatusToValid(orderId: string, report: ReportEntity) {
+    const order = this.orders.find((el) => el.id === orderId);
+    order.changeStatus(true);
+    this.report = report;
+  }
+}
+```
+
 If you are interested in the option with domain events, then follow the [link](https://github.com/zhuravlevma/nestjs-ddd-clean-architecture)
 
 [Domain model](https://martinfowler.com/eaaCatalog/domainModel.html) with a clean architecture with ports and adapters. It takes into account some tactical patterns from DDD.
@@ -9,18 +36,6 @@ If you are interested in the option with domain events, then follow the [link](h
 ## Architecture
 
 ![image](https://github.com/zhuravlevma/ddd-nested-aggregates/assets/44276887/0b862b4e-6d1e-4882-bb29-1653f296cd56)
-
-### Module boundaries
-
-If you have a large monolith that contains many [bounded contexts](https://martinfowler.com/bliki/BoundedContext.html), then the service can be divided into modules by context.
-
-If you have a micro service architecture and you prefer to allocate contexts to different services (which is preferable), then the service can be divided into modules by [aggregates](https://martinfowler.com/bliki/DDD_Aggregate.html).
-
-In this example, there are more than one bounded contexts, you have a monolith in front of you. And this monolith is internally divided into modules according to bounded contexts.
-
-### Event Storming schema
-
-![image](https://github.com/zhuravlevma/nestjs-clean-architecture/assets/44276887/396d6ec0-bc43-4cf3-9dec-a77625f2fd11)
 
 ## Installation
 
